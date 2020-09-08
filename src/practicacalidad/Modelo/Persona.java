@@ -9,8 +9,8 @@ package practicacalidad.Modelo;
  *
  * @author Jessica Alvarez
  */
-public class Persona {
-    private int persona_id;
+public abstract class Persona {
+   
     private String persona_cedula;
     private String persona_nombre;
     private String persona_apellido;
@@ -20,13 +20,16 @@ public class Persona {
     public Persona() {
     }
 
-    public int getPersona_id() {
-        return persona_id;
+    public Persona(String persona_cedula, String persona_nombre, String persona_apellido, String persona_email, String telefono) {
+        this.persona_cedula = persona_cedula;
+        this.persona_nombre = persona_nombre;
+        this.persona_apellido = persona_apellido;
+        this.persona_email = persona_email;
+        this.telefono = telefono;
     }
+    
 
-    public void setPersona_id(int persona_id) {
-        this.persona_id = persona_id;
-    }
+
 
     public String getPersona_cedula() {
         return persona_cedula;

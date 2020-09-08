@@ -9,20 +9,17 @@ package practicacalidad.Modelo;
  *
  * @author Jessica Alvarez
  */
-public class Docente {
-    private int docente_id;
+public class Docente extends Persona{
+    
     private String docente_titulo;
-    private int persona_id;
 
-    public Docente() {
+    public Docente(String docente_titulo) {
+        this.docente_titulo = docente_titulo;
     }
 
-    public int getDocente_id() {
-        return docente_id;
-    }
-
-    public void setDocente_id(int docente_id) {
-        this.docente_id = docente_id;
+    public Docente(String docente_titulo, String persona_cedula, String persona_nombre, String persona_apellido, String persona_email, String telefono) {
+        super(persona_cedula, persona_nombre, persona_apellido, persona_email, telefono);
+        this.docente_titulo = docente_titulo;
     }
 
     public String getDocente_titulo() {
@@ -32,13 +29,8 @@ public class Docente {
     public void setDocente_titulo(String docente_titulo) {
         this.docente_titulo = docente_titulo;
     }
-
-    public int getPersona_id() {
-        return persona_id;
-    }
-
-    public void setPersona_id(int persona_id) {
-        this.persona_id = persona_id;
-    }
     
+    
+
+   
 }

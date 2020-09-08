@@ -9,21 +9,23 @@ package practicacalidad.Modelo;
  *
  * @author Jessica Alvarez
  */
-public class Estudiante {
-    private int estudiante_id;
+public class Estudiante extends Persona {
+    
     private String codigo_Senecyt;
-    private int persona_id;
+
+    public Estudiante(String codigo_Senecyt) {
+        this.codigo_Senecyt = codigo_Senecyt;
+    }
+
+    public Estudiante(String codigo_Senecyt, String persona_cedula, String persona_nombre, String persona_apellido, String persona_email, String telefono) {
+        super(persona_cedula, persona_nombre, persona_apellido, persona_email, telefono);
+        this.codigo_Senecyt = codigo_Senecyt;
+    }
 
     public Estudiante() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public int getEstudiante_id() {
-        return estudiante_id;
-    }
-
-    public void setEstudiante_id(int estudiante_id) {
-        this.estudiante_id = estudiante_id;
-    }
+    
 
     public String getCodigo_Senecyt() {
         return codigo_Senecyt;
@@ -32,14 +34,6 @@ public class Estudiante {
     public void setCodigo_Senecyt(String codigo_Senecyt) {
         this.codigo_Senecyt = codigo_Senecyt;
     }
-
-    public int getPersona_id() {
-        return persona_id;
-    }
-
-    public void setPersona_id(int persona_id) {
-        this.persona_id = persona_id;
-    }
-    
+ 
     
 }
