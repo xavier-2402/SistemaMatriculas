@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package controlador;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import vista.VistaFormulario;
@@ -14,6 +17,8 @@ import vista.VistaFormulario;
 public class Formulario {
     
     private VistaFormulario vistaFormulario;
+    
+    private JButton btnMatricular;
     
     public Formulario (VistaFormulario vistaFormulario){
         vistaFormulario.setVisible(true);
