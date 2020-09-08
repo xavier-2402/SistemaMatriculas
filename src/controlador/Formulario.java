@@ -13,6 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import practicacalidad.Modelo.Estudiante;
+import vista.Menu;
 import vista.VistaFormulario;
 /**
  *
@@ -21,18 +22,19 @@ import vista.VistaFormulario;
 public class Formulario implements ActionListener{
     
     private VistaFormulario vistaFormulario;
-    
-    private Estudiante estudiante = new Estudiante();
+
     
     public Formulario (VistaFormulario vistaFormulario){
         this.vistaFormulario = vistaFormulario;
         this.vistaFormulario.setVisible(true);
         this.vistaFormulario.setLocationRelativeTo(null);
+        inicializarComponentes();
     }
     
     public void inicializarComponentes(){
         this.vistaFormulario.getBtnMatricular().addActionListener(this);
         this.vistaFormulario.getCbxAsignatura().addActionListener(this);
+        this.vistaFormulario.getBtncancelar().addActionListener(this);
     }
     
     public void limpiar(){
@@ -86,6 +88,12 @@ public class Formulario implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        if(e.getSource().equals(this.vistaFormulario.getBtncancelar())){
+            this.vistaFormulario.dispose();
+              Menu vm = new Menu();
+              ControladorMenu cm = new ControladorMenu(vm);
+        }
         
     }
     

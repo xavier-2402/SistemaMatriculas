@@ -47,6 +47,7 @@ public class VistaFormulario extends javax.swing.JFrame {
         cbxAsignatura = new javax.swing.JComboBox<>();
         txtCodigoEst = new javax.swing.JTextField();
         btnMatricular = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,8 @@ public class VistaFormulario extends javax.swing.JFrame {
         });
 
         btnMatricular.setText("MATRICULAR");
+
+        btncancelar.setText("CANCELAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,18 +113,21 @@ public class VistaFormulario extends javax.swing.JFrame {
                         .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(btncancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMatricular)
+                .addGap(58, 58, 58))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(147, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(140, 140, 140))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnMatricular)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCodigoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCodigoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
@@ -161,13 +167,23 @@ public class VistaFormulario extends javax.swing.JFrame {
                             .addComponent(cbxAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addComponent(btnMatricular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMatricular)
+                            .addComponent(btncancelar))
                         .addGap(34, 34, 34))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtncancelar() {
+        return btncancelar;
+    }
+
+    public void setBtncancelar(JButton btncancelar) {
+        this.btncancelar = btncancelar;
+    }
 
     private void txtCodigoEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoEstActionPerformed
         // TODO add your handling code here:
@@ -276,6 +292,7 @@ public class VistaFormulario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMatricular;
+    private javax.swing.JButton btncancelar;
     private javax.swing.JComboBox<String> cbxAsignatura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

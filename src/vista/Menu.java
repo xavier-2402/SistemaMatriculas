@@ -5,6 +5,8 @@
  */
 package vista;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author usuario
@@ -34,10 +36,10 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_listar.setBackground(new java.awt.Color(0, 153, 153));
+        btn_listar.setBackground(new java.awt.Color(255, 255, 153));
         btn_listar.setText("LISTAR MATRICULAS");
 
-        btn_formulario.setBackground(new java.awt.Color(0, 153, 153));
+        btn_formulario.setBackground(new java.awt.Color(255, 255, 153));
         btn_formulario.setText("FORMULARIO MATRICULAS");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -81,6 +83,22 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtn_formulario() {
+        return btn_formulario;
+    }
+
+    public void setBtn_formulario(JButton btn_formulario) {
+        this.btn_formulario = btn_formulario;
+    }
+
+    public JButton getBtn_listar() {
+        return btn_listar;
+    }
+
+    public void setBtn_listar(JButton btn_listar) {
+        this.btn_listar = btn_listar;
+    }
 
     /**
      * @param args the command line arguments

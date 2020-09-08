@@ -23,7 +23,7 @@ public class Estudiante extends Persona {
     }
 
     public Estudiante() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
     }
     
 
