@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modeloDB.MatriculaDB;
 import vista.VistaLista;
 
 /**
@@ -20,6 +21,7 @@ public class Listado implements ActionListener {
 
     private VistaLista vistalistado;
     DefaultTableModel dtm = new DefaultTableModel();
+    MatriculaDB matricula = new MatriculaDB();
 
     public Listado(VistaLista vistalistado) {
         this.vistalistado = vistalistado;
@@ -27,15 +29,10 @@ public class Listado implements ActionListener {
         this.vistalistado.setLocationRelativeTo(null);
         this.vistalistado.getBtnaceptar().addActionListener(this);
 
-        Inicializartablita();
+        CargarTabla();
 
     }
 
-    public void Inicializartablita() {
-        String titulos[] = {"Estudiante", "Asignatura", "Docente"};
-        dtm.setColumnIdentifiers(titulos);
-        vistalistado.getTabla().setModel(dtm);
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -43,6 +40,11 @@ public class Listado implements ActionListener {
         if (e.getSource().equals(this.vistalistado.getBtnaceptar())) {
             this.vistalistado.dispose();
         }
+    }
+    
+    public void CargarTabla(){
+        dtm= matricula.ObtenerDatos();
+        this.vistalistado.getTabla().setModel(dtm);
     }
 
 }

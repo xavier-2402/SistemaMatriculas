@@ -69,21 +69,52 @@ public class Formulario implements ActionListener {
         }
     }
 
-    public void valCedula(String parametro) {
+    public boolean valCedula(String parametro) {
         if (parametro.matches("[0-9]*") && parametro.length() == 10) {
-
+            return true;
         } else {
-            JOptionPane.showMessageDialog(null, "Ingrese solo números");
+            JOptionPane.showMessageDialog(null, "Ingrese 10 números en la cédula");
+            return false;
+        }
+    }
+    
+    public boolean valTelefono(String parametro){
+        if(parametro.length()==9 || parametro.length()==10){
+            return true;
+        }else {
+            JOptionPane.showMessageDialog(null, "Ingrese la cantidad correcta en el numero telefonico");
+            return false;
         }
     }
 
-    public void valCorreo(String parametro) {
+    public boolean valCorreo(String parametro) {
         if (parametro.matches("[-\\w\\.]+@\\w+\\.\\w+")) {
-
+            return true;
         } else {
-            JOptionPane.showMessageDialog(null, "Correo Incorrecto");
+            JOptionPane.showMessageDialog(null, "Correo electronico Incorrecto");
+            return false;
         }
     }
+    
+   public boolean Validaciones(){
+       boolean resultado = false;
+       if(vistaFormulario.getTxtCodigoEst().getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Ingrese el codigo de senescyt");
+       } else if(vistaFormulario.getTxtCedula().getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Ingrese una cedula");
+       }else if(vistaFormulario.getTxtNombres().getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Ingrese nombres");
+       }else if(vistaFormulario.getTxtApellidos().getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Ingrese apellidos");
+       } else if(vistaFormulario.getTxtCorreo().getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Ingrese un correo electronico");
+       }else if(vistaFormulario.getTxtTelefono().getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Ingrese un numero de telefono");
+       }else{
+           resultado=true;
+       }
+       return resultado;
+   }
 
     public void CargarDatos() {
         modelo.setPersona_cedula(vistaFormulario.getTxtCedula().getText());
@@ -134,7 +165,16 @@ public class Formulario implements ActionListener {
         }
         if (e.getSource().equals(this.vistaFormulario.getBtnMatricular())) {
             CargarDatos();
-            Matricular();
+            if(Validaciones()){
+               if(valCedula(this.vistaFormulario.getTxtCedula().getText())){
+                   if(valCorreo(this.vistaFormulario.getTxtCorreo().getText())){
+                       if(valTelefono(this.vistaFormulario.getTxtTelefono().getText())){
+                           Matricular();
+                       }
+                   }
+               }
+            }
+           
 
         }
 
