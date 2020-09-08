@@ -5,6 +5,9 @@
  */
 package practicacalidad;
 
+import controlador.ControladorMenu;
+import vista.Menu;
+
 /**
  *
  * @author usuario
@@ -15,7 +18,8 @@ public class PracticaCalidad {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Menu menu = new Menu();
+        ControladorMenu ctrl = new ControladorMenu(menu);
     }
     
 }
