@@ -7,6 +7,9 @@ package conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,38 +18,17 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
      Connection conexion ;
-     
+      private Statement st;//COMANDOS SQL
+    private ResultSet rst;//RESULTADO DE LAS CONSULTAS
+
     public Conexion() {
     }
     
     
-
-//    public void connectDatabase() {
-//        try {
-//            // We register the PostgreSQL driver
-//            // Registramos el driver de PostgresSQL
-//            try { 
-//                Class.forName("org.postgresql.Driver");
-//            } catch (ClassNotFoundException ex) {
-//                System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
-//            }
-//            Connection connection = null;
-//            // Database connect
-//            // Conectamos con la base de datos
-//            connection = DriverManager.getConnection(
-//                    "jdbc:postgresql://192.168.0.26:5432/customerdb",
-//                    "xulescode", "xulescode");
-// 
-//            boolean valid = connection.isValid(50000);
-//            System.out.println(valid ? "TEST OK" : "TEST FAIL");
-//        } catch (java.sql.SQLException sqle) {
-//            System.out.println("Error: " + sqle);
-//        }
-//    } 
-    
-    public Connection conexion(String usuario,String password)
+    public Connection conexion()
     {
-         
+         String usuario ="postgres";
+         String password ="12345678";
            String url="jdbc:postgresql://database-1.cqky7cb50g2m.us-east-1.rds.amazonaws.com:5432/SistemaMatriculas";
            
            try{
@@ -64,5 +46,30 @@ public class Conexion {
            
            return conexion;
          
-    }     
+    }  
+    
+     public ResultSet query(String sql) {//CONSULTAS 
+        try {
+            st = conexion().createStatement();
+            rst = st.executeQuery(sql);
+            conexion.close();
+            return rst;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }//FIN DEL METODO RESULTSET DEL QUERY PARA CONSULTAS
+
+    public boolean noQuery(String sql) {
+        try {
+            st = conexion().createStatement();
+            st.execute(sql);
+            st.close();
+            conexion().close();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Error al ingresar:" + ex.getMessage());
+            return false;
+        }
+    }//FIN DEL METODO RESULTSET DEL QUERY PARA CONSULTAS
 }

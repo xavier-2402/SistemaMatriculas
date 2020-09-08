@@ -18,6 +18,13 @@ public class Matricula {
 
     public Matricula() {
     }
+
+    public Matricula(Date fecha, int estudiante_id, int asignatura_id) {
+        this.fecha = fecha;
+        this.estudiante_id = estudiante_id;
+        this.asignatura_id = asignatura_id;
+    }
+    
     
 
     public Date getFecha() {
