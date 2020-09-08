@@ -12,7 +12,6 @@ import java.util.Date;
  * @author Jessica Alvarez
  */
 public class Matricula {
-    private int matricula_id;
     private Date fecha;
     private int estudiante_id;
     private int asignatura_id;
@@ -20,14 +19,6 @@ public class Matricula {
     public Matricula() {
     }
     
-
-    public int getMatricula_id() {
-        return matricula_id;
-    }
-
-    public void setMatricula_id(int matricula_id) {
-        this.matricula_id = matricula_id;
-    }
 
     public Date getFecha() {
         return fecha;
